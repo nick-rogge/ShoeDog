@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+import { db } from '../../db/index';
+import { productsTable } from '../../db/productSchema';
 
 export function listProducts(req: Request, res: Response) {
     res.send('listProducts');
@@ -8,9 +10,11 @@ export function getProductById(req: Request, res: Response) {
     res.send('GetProductById');
 }
 
-export function createProduct(req: Request, res: Response){
-
+export async function createProduct(req: Request, res: Response){
     console.log(req.body);
+    
+    await db.insert(productsTable).values(req.body);
+    
     res.send('createProduct');
 }
 
