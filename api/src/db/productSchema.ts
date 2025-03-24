@@ -15,6 +15,4 @@ export const productsTable = pgTable('products', {
     colorway: varchar({length: 255}),
     image: varchar({length: 255}).notNull(),
     
-
-    
 })
