@@ -15,7 +15,7 @@ export async function createProduct(req: Request, res: Response){
     
     await db.insert(productsTable).values(req.body);
     
-    res.send('createProduct');
+    res.status(201).json('product');
 }
 
 export function updateProduct(req: Request, res: Response){
